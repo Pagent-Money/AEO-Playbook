@@ -427,6 +427,505 @@ lighthouse --only-categories=performance "$URLS[0]" --output=json
                 </pre>
             </div>
 
+            <h2 id="indexnow-integration">IndexNow Integration - Immediate Content Indexing</h2>
+
+            <div class="data-highlight">
+                IndexNow enables instant URL submission to search engines when content changes. Based on <a href="https://www.indexnow.org/documentation" target="_blank">IndexNow.org documentation</a>, this protocol notifies search engines immediately about content updates.
+            </div>
+
+            <div class="methodology">
+                <h3>Implementation Strategy</h3>
+                <p><strong>Purpose:</strong> Accelerate search engine discovery and AI crawler indexing</p>
+                <p><strong>Supported Engines:</strong> Bing, Seznam, Yandex, and other participating search engines</p>
+                <p><strong>Benefit:</strong> Reduces crawl delay from days/weeks to minutes/hours</p>
+            </div>
+
+            <h3>Step 1: Generate and Host IndexNow Key</h3>
+            <div class="code-block">
+                <pre>
+// Generate IndexNow key (8-128 hexadecimal characters)
+function generateIndexNowKey(length = 64) {
+  const chars = '0123456789abcdefABCDEF';
+  let key = '';
+  for (let i = 0; i < length; i++) {
+    key += chars[Math.floor(Math.random() * chars.length)];
+  }
+  return key;
+}
+
+// Example key: a1b2c3d4e5f6789012345678901234567890abcdef1234567890
+const myKey = generateIndexNowKey();
+
+// Host key file at: https://yourdomain.com/{key}.txt
+// File content: just the key string (UTF-8 encoded)
+console.log(`Create file: https://yourdomain.com/${myKey}.txt`);
+console.log(`File content: ${myKey}`);
+                </pre>
+            </div>
+
+            <h3>Step 2: Single URL Submission</h3>
+            <div class="code-block">
+                <pre>
+// Submit single URL when content changes
+async function submitToIndexNow(url, key) {
+  const endpoints = [
+    'https://api.indexnow.org/indexnow',
+    'https://www.bing.com/indexnow',
+    'https://search.seznam.cz/indexnow'
+  ];
+  
+  const results = [];
+  
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(
+        `${endpoint}?url=${encodeURIComponent(url)}&key=${key}`,
+        { 
+          method: 'GET',
+          headers: {
+            'User-Agent': 'AEO-Indexer/1.0'
+          }
+        }
+      );
+      
+      const result = {
+        endpoint: endpoint,
+        status: response.status,
+        success: response.status === 200 || response.status === 202
+      };
+      
+      if (response.status === 200) {
+        console.log(`✅ ${endpoint}: URL submitted successfully`);
+      } else if (response.status === 202) {
+        console.log(`⏳ ${endpoint}: URL received, validation pending`);
+      } else if (response.status === 400) {
+        console.log(`❌ ${endpoint}: Bad request - check URL format`);
+      } else if (response.status === 403) {
+        console.log(`❌ ${endpoint}: Forbidden - key validation failed`);
+      } else if (response.status === 429) {
+        console.log(`⚠️ ${endpoint}: Too many requests - retry later`);
+      }
+      
+      results.push(result);
+      
+    } catch (error) {
+      console.error(`❌ ${endpoint}: Network error`, error);
+      results.push({ endpoint, error: error.message, success: false });
+    }
+  }
+  
+  return results;
+}
+
+// Usage: Submit when content changes
+const key = 'your-indexnow-key-here';
+submitToIndexNow('https://yourdomain.com/new-article.html', key);
+                </pre>
+            </div>
+
+            <h3>Step 3: Batch URL Submission (Up to 10,000 URLs)</h3>
+            <div class="code-block">
+                <pre>
+// Submit multiple URLs in a single request
+async function submitBatchToIndexNow(urls, key, host) {
+  const payload = {
+    host: host,
+    key: key,
+    urlList: urls.slice(0, 10000) // Max 10,000 URLs per request
+  };
+  
+  const endpoints = [
+    'https://api.indexnow.org/indexnow',
+    'https://www.bing.com/indexnow'
+  ];
+  
+  const results = [];
+  
+  for (const endpoint of endpoints) {
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8',
+          'User-Agent': 'AEO-Indexer/1.0'
+        },
+        body: JSON.stringify(payload)
+      });
+      
+      const result = {
+        endpoint: endpoint,
+        status: response.status,
+        urlCount: urls.length,
+        success: response.status === 200 || response.status === 202
+      };
+      
+      if (response.status === 200) {
+        console.log(`✅ ${endpoint}: ${urls.length} URLs submitted successfully`);
+      } else {
+        console.log(`❌ ${endpoint}: Batch submission failed (${response.status})`);
+      }
+      
+      results.push(result);
+      
+    } catch (error) {
+      console.error(`❌ ${endpoint}: Batch submission error`, error);
+      results.push({ endpoint, error: error.message, success: false });
+    }
+  }
+  
+  return results;
+}
+
+// Usage: Batch submit multiple pages
+const updatedPages = [
+  'https://yourdomain.com/page1.html',
+  'https://yourdomain.com/page2.html',
+  'https://yourdomain.com/changelog.html'
+];
+
+submitBatchToIndexNow(updatedPages, 'your-key', 'yourdomain.com');
+                </pre>
+            </div>
+
+            <h3>Step 4: Automated CMS Integration</h3>
+            <div class="code-block">
+                <pre>
+// IndexNow automation class for content management systems
+class IndexNowManager {
+  constructor(key, host, options = {}) {
+    this.key = key;
+    this.host = host;
+    this.queue = new Set();
+    this.options = {
+      batchDelay: options.batchDelay || 5000,    // 5 second delay
+      maxBatchSize: options.maxBatchSize || 100,  // Max URLs per batch
+      retryDelay: options.retryDelay || 30000,    // 30 second retry delay
+      maxRetries: options.maxRetries || 3
+    };
+    this.retryCount = new Map();
+  }
+  
+  // Add URL to submission queue
+  queueURL(url) {
+    this.queue.add(url);
+    this.scheduleSubmission();
+  }
+  
+  // Schedule batch submission with delay
+  scheduleSubmission() {
+    clearTimeout(this.submitTimer);
+    this.submitTimer = setTimeout(() => {
+      this.processBatch();
+    }, this.options.batchDelay);
+  }
+  
+  // Process queued URLs
+  async processBatch() {
+    if (this.queue.size === 0) return;
+    
+    const urls = Array.from(this.queue).slice(0, this.options.maxBatchSize);
+    this.queue.clear();
+    
+    try {
+      if (urls.length === 1) {
+        await submitToIndexNow(urls[0], this.key);
+      } else {
+        await submitBatchToIndexNow(urls, this.key, this.host);
+      }
+      
+      // Clear retry counts for successful submissions
+      urls.forEach(url => this.retryCount.delete(url));
+      
+    } catch (error) {
+      console.error('IndexNow submission failed:', error);
+      this.handleRetries(urls);
+    }
+  }
+  
+  // Handle failed submissions with retry logic
+  handleRetries(urls) {
+    urls.forEach(url => {
+      const retries = this.retryCount.get(url) || 0;
+      if (retries < this.options.maxRetries) {
+        this.retryCount.set(url, retries + 1);
+        setTimeout(() => {
+          this.queueURL(url);
+        }, this.options.retryDelay * (retries + 1));
+      } else {
+        console.error(`Max retries exceeded for URL: ${url}`);
+        this.retryCount.delete(url);
+      }
+    });
+  }
+  
+  // Submit changelog updates (important for AEO)
+  submitChangelogUpdate(changelogURL) {
+    console.log('📝 Submitting changelog update to IndexNow...');
+    this.queueURL(changelogURL);
+  }
+  
+  // Submit new content immediately
+  submitImmediately(url) {
+    console.log(`🚀 Immediate IndexNow submission: ${url}`);
+    return submitToIndexNow(url, this.key);
+  }
+}
+
+// Usage in your CMS or static site generator
+const indexNowManager = new IndexNowManager('your-key', 'yourdomain.com');
+
+// Hook into content publishing workflow
+function onContentPublished(url) {
+  indexNowManager.queueURL(url);
+}
+
+function onContentUpdated(url) {
+  indexNowManager.queueURL(url);
+}
+
+function onChangelogUpdated() {
+  indexNowManager.submitChangelogUpdate('https://yourdomain.com/changelog.html');
+}
+                </pre>
+            </div>
+
+            <h2 id="ai-optimization-techniques">AI Content Optimization for Better Indexing</h2>
+
+            <div class="data-highlight">
+                Optimize content structure and presentation to improve indexing by ChatGPT, DeepSeek, Perplexity, and other AI systems.
+            </div>
+
+            <h3>Content Structure Optimization</h3>
+            <div class="code-block">
+                <pre>
+&lt;!-- AI-Optimized Content Structure --&gt;
+&lt;article&gt;
+  &lt;!-- Answer-First Structure: Lead with direct answers --&gt;
+  &lt;header&gt;
+    &lt;h1&gt;How to Implement IndexNow for Faster Search Indexing&lt;/h1&gt;
+    &lt;div class="answer-summary"&gt;
+      &lt;p&gt;&lt;strong&gt;Quick Answer:&lt;/strong&gt; IndexNow allows instant URL submission to search engines via simple HTTP requests. Generate a key, host it on your domain, then submit URLs when content changes using GET requests or JSON POST for batches.&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="content-meta"&gt;
+      &lt;time datetime="2025-01-27"&gt;Updated: January 27, 2025&lt;/time&gt;
+      &lt;span class="reading-time"&gt;3 min read&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/header&gt;
+
+  &lt;!-- Key Facts Section (AI loves structured data) --&gt;
+  &lt;section class="key-facts" id="key-facts"&gt;
+    &lt;h2&gt;Key Facts&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;strong&gt;Supported Engines:&lt;/strong&gt; Bing, Seznam, Yandex, and 5+ others&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Response Time:&lt;/strong&gt; Typically indexed within minutes to hours&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;URL Limit:&lt;/strong&gt; 10,000 URLs per POST request&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Key Length:&lt;/strong&gt; 8-128 hexadecimal characters&lt;/li&gt;
+      &lt;li&gt;&lt;strong&gt;Success Rate:&lt;/strong&gt; 95%+ when properly implemented&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Step-by-Step Implementation --&gt;
+  &lt;section id="implementation"&gt;
+    &lt;h2&gt;Implementation Steps&lt;/h2&gt;
+    
+    &lt;div class="step"&gt;
+      &lt;h3&gt;Step 1: Generate IndexNow Key&lt;/h3&gt;
+      &lt;p&gt;Create a unique key with 8-128 hexadecimal characters:&lt;/p&gt;
+      &lt;code&gt;a1b2c3d4e5f6789012345678901234567890&lt;/code&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="step"&gt;
+      &lt;h3&gt;Step 2: Host Key File&lt;/h3&gt;
+      &lt;p&gt;Upload key file to: &lt;code&gt;https://yourdomain.com/{key}.txt&lt;/code&gt;&lt;/p&gt;
+      &lt;p&gt;File content: Just your key string (UTF-8 encoded)&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Q&A Section (Atomic blocks ≤120 words) --&gt;
+  &lt;section class="qa-section" id="faq"&gt;
+    &lt;h2&gt;Frequently Asked Questions&lt;/h2&gt;
+    
+    &lt;div class="qa-block"&gt;
+      &lt;h3&gt;How often can I submit URLs?&lt;/h3&gt;
+      &lt;p&gt;IndexNow has built-in rate limiting. Submit URLs immediately when content changes, but avoid excessive submissions. Most implementations queue URLs and submit in batches every 1-5 minutes to prevent 429 errors.&lt;/p&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="qa-block"&gt;
+      &lt;h3&gt;Which search engines support IndexNow?&lt;/h3&gt;
+      &lt;p&gt;Bing, Seznam, and Yandex officially support IndexNow. When you submit to one participating engine, your URLs are automatically shared with all other participating engines in the protocol.&lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/section&gt;
+
+  &lt;!-- Supporting Sources --&gt;
+  &lt;section class="sources" id="sources"&gt;
+    &lt;h2&gt;Sources &amp; Documentation&lt;/h2&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="https://www.indexnow.org/documentation"&gt;Official IndexNow Documentation&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="https://blogs.bing.com/webmaster/october-2021/IndexNow-instantly-index-your-web-content-in-search-engines"&gt;Bing IndexNow Announcement&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/section&gt;
+&lt;/article&gt;
+                </pre>
+            </div>
+
+            <h3>AI-Friendly Technical Implementation</h3>
+            <div class="code-block">
+                <pre>
+&lt;!-- Enhanced meta tags for AI understanding --&gt;
+&lt;head&gt;
+  &lt;title&gt;IndexNow Implementation Guide: Instant Search Engine Indexing&lt;/title&gt;
+  &lt;meta name="description" content="Complete guide to implementing IndexNow for instant URL submission to search engines. Includes code examples, batch submission, and CMS integration."&gt;
+  
+  &lt;!-- AI-specific meta tags --&gt;
+  &lt;meta name="article:published_time" content="2025-01-27T10:30:00Z"&gt;
+  &lt;meta name="article:modified_time" content="2025-01-27T10:30:00Z"&gt;
+  &lt;meta name="article:section" content="Technical Documentation"&gt;
+  &lt;meta name="article:tag" content="IndexNow,Search Engine Optimization,API,Web Development"&gt;
+  
+  &lt;!-- Schema.org markup for better AI understanding --&gt;
+  &lt;script type="application/ld+json"&gt;
+  {
+    "@context": "https://schema.org",
+    "@type": "TechnicalArticle",
+    "headline": "IndexNow Implementation Guide: Instant Search Engine Indexing",
+    "description": "Complete technical guide to implementing IndexNow API for immediate URL submission to search engines",
+    "author": {
+      "@type": "Organization",
+      "name": "AEO Playbook Community"
+    },
+    "datePublished": "2025-01-27T10:30:00Z",
+    "dateModified": "2025-01-27T10:30:00Z",
+    "mainEntity": {
+      "@type": "HowTo",
+      "name": "How to Implement IndexNow",
+      "step": [
+        {
+          "@type": "HowToStep",
+          "name": "Generate IndexNow Key",
+          "text": "Create a unique key with 8-128 hexadecimal characters"
+        },
+        {
+          "@type": "HowToStep", 
+          "name": "Host Key File",
+          "text": "Upload key file to your domain root directory"
+        },
+        {
+          "@type": "HowToStep",
+          "name": "Submit URLs",
+          "text": "Send HTTP requests to IndexNow endpoints when content changes"
+        }
+      ]
+    }
+  }
+  &lt;/script&gt;
+&lt;/head&gt;
+                </pre>
+            </div>
+
+            <h3>Content Quality Signals for AI Systems</h3>
+            <div class="code-block">
+                <pre>
+/* CSS for AI-optimized content presentation */
+.answer-summary {
+  background: #f0f8ff;
+  border-left: 4px solid #0066FF;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-size: 1.1rem;
+}
+
+.key-facts {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+}
+
+.key-facts ul {
+  list-style: none;
+  padding: 0;
+}
+
+.key-facts li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.key-facts li:last-child {
+  border-bottom: none;
+}
+
+.qa-block {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  border-left: 3px solid #0066FF;
+  background: #fafafa;
+}
+
+.qa-block h3 {
+  color: #0066FF;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.step {
+  margin: 2rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.content-meta {
+  color: #666;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+}
+
+.content-meta time {
+  font-weight: 600;
+  color: #0066FF;
+}
+
+/* Table formatting for data extraction */
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.data-table th,
+.data-table td {
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.data-table th {
+  background: #f5f5f5;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Code examples for technical content */
+.code-example {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.code-example pre {
+  margin: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+                </pre>
+            </div>
+
             <div style="margin-top: 3rem; padding: 2rem; background: #ffffff; border: 1px solid #D5D5D5; border-radius: 8px;">
                 <h3>Implementation Checklist</h3>
                 <div class="checklist-section">
