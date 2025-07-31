@@ -1,0 +1,38 @@
+# AEO Playbook - AI Crawler Optimized robots.txt
+# Updated: 2025-01-27
+
+# Allow OpenAI crawlers
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# Allow Perplexity crawler
+User-agent: PerplexityBot
+Allow: /
+
+# Allow Anthropic crawler
+User-agent: Claude-Web
+Allow: /
+
+# Allow other AI crawlers
+User-agent: ChatGPT-User
+Allow: /
+
+# Allow traditional search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Default policy for all other bots
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://aeo-playbook.github.io/sitemap.xml
+
+# Optional: Rate limiting for aggressive crawlers
+# Crawl-delay: 1

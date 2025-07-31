@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <!-- Homepage -->
+  <url>
+    <loc>https://aeo-playbook.github.io/</loc>
+    <lastmod>2025-01-27T10:30:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <!-- Complete Playbook -->
+  <url>
+    <loc>https://aeo-playbook.github.io/playbook.html</loc>
+    <lastmod>2025-01-27T10:30:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  
+  <!-- Quick Start Guide -->
+  <url>
+    <loc>https://aeo-playbook.github.io/quickstart.html</loc>
+    <lastmod>2025-01-27T10:30:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Templates -->
+  <url>
+    <loc>https://aeo-playbook.github.io/templates.html</loc>
+    <lastmod>2025-01-27T10:30:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Measurement Guide -->
+  <url>
+    <loc>https://aeo-playbook.github.io/measurement.html</loc>
+    <lastmod>2025-01-27T10:30:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Action Plan -->
+  <url>
+    <loc>https://aeo-playbook.github.io/action-plan.html</loc>
+    <lastmod>2025-01-27T10:30:00Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <!-- Changelog -->
+  <url>
+    <loc>https://aeo-playbook.github.io/changelog.html</loc>
+    <lastmod>2025-01-27T10:30:00Z</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>
