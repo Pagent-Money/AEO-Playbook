@@ -3,10 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Operational Protocol - AEO Research Framework</title>
-    <meta name="description" content="Systematic operational protocol for manual and periodic AEO optimization tasks based on research findings.">
+    <title>Actionables - AEO Research Framework</title>
+    <meta name="description" content="Actionable checklists for implementing and maintaining AEO optimization based on research findings.">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="canonical" href="https://aeo-playbook.github.io/action-plan.html">
+    
+    <style>
+        .actionable-checklist {
+            background: #ffffff;
+            border: 1px solid #D5D5D5;
+            border-radius: 6px;
+            margin: 2rem 0;
+            overflow: hidden;
+        }
+        
+        .checklist-header {
+            background: #0066FF;
+            color: #ffffff;
+            padding: 1rem 1.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        
+        .checklist-content {
+            padding: 1.5rem;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .checklist-item:last-child {
+            border-bottom: none;
+        }
+        
+        .checklist-checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #D5D5D5;
+            border-radius: 3px;
+            margin-right: 1rem;
+            margin-top: 0.1rem;
+            flex-shrink: 0;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .checklist-checkbox:hover {
+            border-color: #0066FF;
+        }
+        
+        .checklist-checkbox.checked {
+            background: #0066FF;
+            border-color: #0066FF;
+        }
+        
+        .checklist-checkbox.checked::after {
+            content: "✓";
+            position: absolute;
+            top: -2px;
+            left: 2px;
+            color: white;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        
+        .checklist-text {
+            flex: 1;
+            line-height: 1.5;
+        }
+        
+        .checklist-text strong {
+            color: #0066FF;
+        }
+        
+        .copy-button {
+            background: #f7f7f7;
+            border: 1px solid #D5D5D5;
+            border-radius: 4px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        
+        .copy-button:hover {
+            background: #0066FF;
+            color: white;
+            border-color: #0066FF;
+        }
+        
+        .priority-high {
+            border-left: 4px solid #e74c3c;
+        }
+        
+        .priority-medium {
+            border-left: 4px solid #f39c12;
+        }
+        
+        .priority-low {
+            border-left: 4px solid #27ae60;
+        }
+        
+        .implementation-note {
+            background: rgba(0, 102, 255, 0.05);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.95rem;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -26,176 +136,217 @@
     <main class="content-section">
         <div class="container">
             <div class="academic-header">
-                <h1>Operational Protocol</h1>
-                <p class="academic-meta">Systematic Manual and Periodic Tasks for AEO Optimization</p>
-                <p class="academic-meta"><strong>Based on:</strong> 6-month longitudinal analysis and implementation findings</p>
+                <h1>AEO Actionables</h1>
+                <p class="academic-meta">Implementation checklists for systematic AEO optimization</p>
+                <p class="academic-meta"><strong>Note:</strong> Complete these tasks at your own pace based on your project needs</p>
             </div>
 
-            <div class="abstract">
-                <h3>Protocol Overview</h3>
-                <p>This operational protocol outlines systematic manual actions and periodic maintenance tasks required to maintain and improve AEO performance. These procedures complement automated technical implementations and require human oversight for optimal results.</p>
+            <div class="implementation-note">
+                <strong>How to use these checklists:</strong> Each checklist is independent and can be implemented in any order. Click checkboxes to track your progress. Use the copy button to copy checklist items to your project management tools.
             </div>
 
-            <h2 id="immediate-setup">Immediate Setup Actions (Week 1)</h2>
-
-            <div class="checklist">
-                <div class="checklist-section">
-                    <h3>🤖 Technical Infrastructure (Days 1-2)</h3>
-                    <ul>
-                        <li>Update robots.txt with AI crawler permissions</li>
-                        <li>Create/update sitemap.xml with accurate timestamps</li>
-                        <li>Implement Organization and FAQPage schema markup</li>
-                        <li>Configure analytics for AI referral traffic tracking</li>
-                        <li>Verify mobile responsiveness and Core Web Vitals</li>
-                    </ul>
-                </div>
-                
-                <div class="checklist-section">
-                    <h3>📝 Content Optimization (Days 3-5)</h3>
-                    <ul>
-                        <li>Audit existing content for AEO optimization opportunities</li>
-                        <li>Add answer-first summaries to key pages</li>
-                        <li>Create key facts sections with 5-8 specific data points</li>
-                        <li>Add visible "Updated: YYYY-MM-DD" timestamps</li>
-                        <li>Generate 2-3 atomic Q&A blocks per page (≤120 words)</li>
-                    </ul>
-                </div>
-                
-                <div class="checklist-section">
-                    <h3>🔍 Indexing and Submission (Days 6-7)</h3>
-                    <ul>
-                        <li>Submit to Google Search Console and Bing Webmaster Tools</li>
-                        <li>Request indexing via URL Inspection tool</li>
-                        <li>Submit to IndexNow API for immediate crawling</li>
-                        <li>Monitor server logs for AI bot activity</li>
-                        <li>Configure social media Open Graph metadata</li>
-                    </ul>
+            <div class="actionable-checklist priority-high">
+                <div class="checklist-header">🚀 Initial Setup Checklist</div>
+                <div class="checklist-content">
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Update robots.txt</strong> - Add AI crawler permissions (OAI-SearchBot, GPTBot, PerplexityBot)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Create sitemap.xml</strong> - Include all key pages with accurate lastmod timestamps</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Implement schema markup</strong> - Add Organization and FAQPage structured data</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Set up analytics tracking</strong> - Configure UTM parameters for AI referral traffic</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Verify mobile responsiveness</strong> - Test all pages on mobile devices</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Performance optimization</strong> - Ensure TTFB <200ms and LCP <2.5s</div>
+                    </div>
+                    <button class="copy-button" onclick="copyChecklist(this)">Copy Checklist</button>
                 </div>
             </div>
 
-            <h2 id="weekly-actions">Weekly Actions (Every Monday)</h2>
-
-            <div class="methodology">
-                <h3>Content Maintenance (30 minutes)</h3>
-                <ul>
-                    <li><strong>Publish 2-3 new atomic Q&A sections</strong> based on recent user questions</li>
-                    <li><strong>Update 1-2 existing pages</strong> with fresh information and new timestamps</li>
-                    <li><strong>Review community questions</strong> that could become FAQ content</li>
-                    <li><strong>Check trending topics</strong> in your industry for content opportunities</li>
-                </ul>
-                
-                <h3>Technical Monitoring (15 minutes)</h3>
-                <ul>
-                    <li><strong>Review server logs</strong> for AI crawler activity (OAI-SearchBot, GPTBot, PerplexityBot)</li>
-                    <li><strong>Check for crawl errors</strong> or blocked requests from AI bots</li>
-                    <li><strong>Verify sitemap accessibility</strong> and recent crawling</li>
-                    <li><strong>Monitor site performance</strong> - Core Web Vitals and load times</li>
-                </ul>
-            </div>
-
-            <h2 id="monthly-actions">Monthly Actions (First Monday)</h2>
-
-            <div class="data-highlight">
-                Critical Success Factor: Monthly LLM panel testing across 30-50 target queries shows 89% correlation with citation rate improvements.
-            </div>
-
-            <div class="methodology">
-                <h3>LLM Panel Testing (2 hours)</h3>
-                <ol>
-                    <li><strong>Prepare test query list</strong> - 30-50 target queries relevant to your domain</li>
-                    <li><strong>Test across AI platforms:</strong>
-                        <ul>
-                            <li>ChatGPT (OpenAI)</li>
-                            <li>Perplexity AI</li>
-                            <li>Microsoft Copilot</li>
-                            <li>Claude (Anthropic)</li>
-                            <li>DeepSeek Chat</li>
-                        </ul>
-                    </li>
-                    <li><strong>Record results:</strong> Citation presence, position, accuracy, link destination</li>
-                    <li><strong>Calculate Share of Voice (SOV)</strong> = (Cited queries / Total test queries) × 100</li>
-                    <li><strong>Identify content gaps</strong> where competitors are cited instead</li>
-                </ol>
-            </div>
-
-            <h2 id="quarterly-actions">Quarterly Actions (Every 3 Months)</h2>
-
-            <table class="comparison-table">
-                <thead>
-                    <tr>
-                        <th>Activity</th>
-                        <th>Time Required</th>
-                        <th>Expected Outcome</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Comprehensive Content Audit</td>
-                        <td>4 hours</td>
-                        <td>Updated accuracy, refreshed timestamps</td>
-                    </tr>
-                    <tr>
-                        <td>Technical Architecture Review</td>
-                        <td>2 hours</td>
-                        <td>Enhanced schema, improved performance</td>
-                    </tr>
-                    <tr>
-                        <td>Strategy and Planning</td>
-                        <td>3 hours</td>
-                        <td>90-day citation trend analysis</td>
-                    </tr>
-                    <tr>
-                        <td>Programmatic Content Scaling</td>
-                        <td>2 hours</td>
-                        <td>New integration/comparison pages</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h2 id="measurement-tracking">Success Metrics Tracking</h2>
-
-            <div class="checklist">
-                <div class="checklist-section">
-                    <h3>Weekly KPIs</h3>
-                    <ul>
-                        <li>AI referral traffic volume</li>
-                        <li>New citations discovered</li>
-                        <li>Content freshness percentage</li>
-                        <li>Technical health score</li>
-                    </ul>
+            <div class="actionable-checklist priority-high">
+                <div class="checklist-header">📝 Content Optimization Checklist</div>
+                <div class="checklist-content">
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Add answer-first summaries</strong> - Create 2-4 sentence summaries for key pages</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Create key facts sections</strong> - Add 5-8 specific data points per page</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Add update timestamps</strong> - Include visible "Updated: YYYY-MM-DD" on all pages</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Generate atomic Q&A blocks</strong> - Create 2-3 Q&A sections per page (≤120 words each)</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Add stable anchor IDs</strong> - Create #setup, #pricing, #limits anchors</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Include supporting sources</strong> - Link to authoritative sources for major claims</div>
+                    </div>
+                    <button class="copy-button" onclick="copyChecklist(this)">Copy Checklist</button>
                 </div>
-                
-                <div class="checklist-section">
-                    <h3>Monthly KPIs</h3>
-                    <ul>
-                        <li>Share of Voice (SOV) across target queries</li>
-                        <li>Top-3 citation rate</li>
-                        <li>Average citation position</li>
-                        <li>Freshness lead time (publication to first citation)</li>
-                    </ul>
+            </div>
+
+            <div class="actionable-checklist priority-medium">
+                <div class="checklist-header">📊 Changelog Implementation & Maintenance</div>
+                <div class="checklist-content">
+                    <div class="implementation-note">
+                        <strong>Changelog Strategy:</strong> A well-maintained changelog signals freshness to AI systems and helps with indexing. Update it consistently to maintain AEO effectiveness.
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Create /changelog page</strong> - Set up dedicated changelog with proper schema markup</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Add to sitemap</strong> - Include changelog in sitemap.xml with weekly changefreq</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Link from footer</strong> - Ensure changelog is accessible from all pages</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Weekly updates</strong> - Add new entries for content changes, feature additions, or improvements</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Monthly summaries</strong> - Create monthly recap entries highlighting major changes</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Version tags</strong> - Use semantic versioning (1.0, 1.1, 2.0) for major updates</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>IndexNow submission</strong> - Submit changelog URL to IndexNow API after each update</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Schema markup</strong> - Add Article schema to changelog entries with proper datePublished</div>
+                    </div>
+                    <button class="copy-button" onclick="copyChecklist(this)">Copy Checklist</button>
                 </div>
-                
-                <div class="checklist-section">
-                    <h3>Quarterly KPIs</h3>
-                    <ul>
-                        <li>Total AI referral traffic growth</li>
-                        <li>Citation-to-conversion rate</li>
-                        <li>Content ROI from AI channels</li>
-                        <li>Competitive citation market share</li>
-                    </ul>
+            </div>
+
+            <div class="actionable-checklist priority-medium">
+                <div class="checklist-header">🔍 Regular Monitoring Checklist</div>
+                <div class="checklist-content">
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Monitor AI crawler activity</strong> - Check server logs for OAI-SearchBot, GPTBot, PerplexityBot</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Track AI citations</strong> - Monitor mentions across ChatGPT, Perplexity, Claude, DeepSeek</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Update content freshness</strong> - Refresh timestamps on modified pages</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Verify technical health</strong> - Check Core Web Vitals and mobile performance</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Validate schema markup</strong> - Use Google's Rich Results Test for validation</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Review analytics</strong> - Check AI referral traffic and engagement metrics</div>
+                    </div>
+                    <button class="copy-button" onclick="copyChecklist(this)">Copy Checklist</button>
+                </div>
+            </div>
+
+            <div class="actionable-checklist priority-medium">
+                <div class="checklist-header">🧪 Testing & Validation Checklist</div>
+                <div class="checklist-content">
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Test target queries</strong> - Run your key queries across major AI platforms</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Record citation results</strong> - Document which platforms cite your content</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Calculate Share of Voice</strong> - Measure citation rate across target queries</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Identify content gaps</strong> - Find topics where competitors are cited instead</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>A/B test content formats</strong> - Compare different content structures for citation rates</div>
+                    </div>
+                    <button class="copy-button" onclick="copyChecklist(this)">Copy Checklist</button>
+                </div>
+            </div>
+
+            <div class="actionable-checklist priority-low">
+                <div class="checklist-header">📈 Advanced Optimization Checklist</div>
+                <div class="checklist-content">
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Create programmatic pages</strong> - Generate integration and comparison pages from data</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Build glossary pages</strong> - Create term definitions with cross-linking</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Implement HowTo schema</strong> - Add structured data for step-by-step content</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Create FAQ collections</strong> - Group related Q&A content with proper schema</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Set up automated monitoring</strong> - Create alerts for citation changes and technical issues</div>
+                    </div>
+                    <div class="checklist-item">
+                        <div class="checklist-checkbox" onclick="toggleCheck(this)"></div>
+                        <div class="checklist-text"><strong>Build citation dashboard</strong> - Track performance across all AI platforms</div>
+                    </div>
+                    <button class="copy-button" onclick="copyChecklist(this)">Copy Checklist</button>
                 </div>
             </div>
 
             <div style="margin-top: 3rem; padding: 2rem; background: #ffffff; border: 1px solid #D5D5D5; border-radius: 8px;">
-                <h3>Implementation Notes</h3>
-                <p><strong>Team Responsibilities:</strong></p>
+                <h3>Implementation Tips</h3>
                 <ul>
-                    <li><strong>Content Team:</strong> Weekly Q&A creation, monthly testing</li>
-                    <li><strong>Technical Team:</strong> Weekly monitoring, monthly audits</li>
-                    <li><strong>Analytics Team:</strong> Citation tracking, quarterly ROI analysis</li>
+                    <li><strong>Start with high-priority items</strong> - Focus on technical setup and content optimization first</li>
+                    <li><strong>Track your progress</strong> - Use these checklists to maintain consistent implementation</li>
+                    <li><strong>Maintain changelog</strong> - Regular updates signal freshness to AI systems</li>
+                    <li><strong>Test regularly</strong> - Monitor AI citations to measure effectiveness</li>
+                    <li><strong>Iterate based on results</strong> - Adjust strategy based on performance data</li>
                 </ul>
-                
-                <p><strong>Success Timeline:</strong> Organizations following this protocol typically achieve 200-400% increases in AI-driven referral traffic within 90 days of implementation.</p>
             </div>
         </div>
     </main>
@@ -203,37 +354,24 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3>AEO Research Project</h3>
+                <div class="footer-brand">
+                    <h3>AEO Playbook</h3>
                     <p>Systematic research framework for Answer Engine Optimization in AI-powered information retrieval systems.</p>
-                    <p><strong>DOI:</strong> 10.5555/aeo.2025.001</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Research Resources</h4>
-                    <ul>
-                        <li><a href="index.html#what-is-aeo">Theoretical Framework</a></li>
-                        <li><a href="index.html#metrics-measurement">Measurement Protocol</a></li>
-                        <li><a href="index.html#implementation">Implementation Guide</a></li>
-                        <li><a href="changelog.html">Research Updates</a></li>
-                    </ul>
+                    <p><strong>DOI:</strong> 10.5555/aeo.2025.001 | <strong>Version:</strong> 1.0</p>
+                    <div class="contact-info">
+                        <p>Contact: <a href="mailto:yuwenqingisu@gmail.com">yuwenqingisu@gmail.com</a></p>
+                    </div>
                 </div>
                 
                 <div class="footer-section">
                     <h4>Supporting Materials</h4>
                     <ul>
-                        <li><a href="action-plan.html">Operational Protocol</a></li>
+                        <li><a href="action-plan.html">Actionables</a></li>
                         <li><a href="templates.html">Technical Templates</a></li>
-                        <li><a href="https://github.com/aeo-playbook/playbook">Source Code</a></li>
-                        <li><a href="index.html#citations">Academic Citations</a></li>
+                        <li><a href="changelog.html">Changelog</a></li>
+                        <li><a href="https://github.com/Pagent-Money/AEO-Playbook">Source Code</a></li>
+                        <li><a href="https://github.com/Pagent-Money/AEO-Playbook/issues">Report Issues</a></li>
                     </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>Contact & Collaboration</h4>
-                    <p>Version 1.0 | January 27, 2025</p>
-                    <p>Research Community</p>
-                    <p><a href="https://github.com/aeo-playbook/playbook/issues">Report Issues</a></p>
                 </div>
             </div>
             
@@ -242,5 +380,54 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        function toggleCheck(checkbox) {
+            checkbox.classList.toggle('checked');
+            // Save state to localStorage
+            saveChecklistState();
+        }
+        
+        function copyChecklist(button) {
+            const content = button.parentElement;
+            const items = content.querySelectorAll('.checklist-text');
+            let text = '';
+            items.forEach((item, index) => {
+                text += `☐ ${item.textContent}\n`;
+            });
+            
+            navigator.clipboard.writeText(text).then(() => {
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy Checklist';
+                }, 2000);
+            });
+        }
+        
+        function saveChecklistState() {
+            const checkboxes = document.querySelectorAll('.checklist-checkbox');
+            const state = {};
+            checkboxes.forEach((cb, index) => {
+                state[index] = cb.classList.contains('checked');
+            });
+            localStorage.setItem('aeo-checklist-state', JSON.stringify(state));
+        }
+        
+        function loadChecklistState() {
+            const state = localStorage.getItem('aeo-checklist-state');
+            if (state) {
+                const parsed = JSON.parse(state);
+                const checkboxes = document.querySelectorAll('.checklist-checkbox');
+                checkboxes.forEach((cb, index) => {
+                    if (parsed[index]) {
+                        cb.classList.add('checked');
+                    }
+                });
+            }
+        }
+        
+        // Load saved state on page load
+        document.addEventListener('DOMContentLoaded', loadChecklistState);
+    </script>
 </body>
 </html>

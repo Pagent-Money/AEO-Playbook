@@ -523,7 +523,7 @@ figcaption {
     font-size: 0.95rem;
 }
 
-/* Academic Footer */
+/* Optimized Footer */
 footer {
     background: #030303;
     color: #f7f7f7;
@@ -534,16 +534,33 @@ footer {
 
 .footer-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
     margin-bottom: 2rem;
+    align-items: start;
 }
 
-.footer-section h3,
+.footer-brand h3 {
+    font-family: 'Source Serif Pro', Georgia, serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f7f7f7;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+.footer-brand p {
+    color: #D5D5D5;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
 .footer-section h4 {
     color: #f7f7f7;
     margin-bottom: 1rem;
     font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1.1rem;
 }
 
 .footer-section ul {
@@ -558,6 +575,7 @@ footer {
 .footer-section ul li a {
     color: #D5D5D5;
     text-decoration: none;
+    font-size: 0.95rem;
 }
 
 .footer-section ul li a:hover {
@@ -571,6 +589,20 @@ footer {
     text-align: center;
     color: #D5D5D5;
     font-size: 0.9rem;
+}
+
+.contact-info {
+    color: #D5D5D5;
+    font-size: 0.95rem;
+}
+
+.contact-info a {
+    color: #0066FF;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
 }
 
 /* Responsive Design */
@@ -613,6 +645,36 @@ footer {
     
     .content-section {
         padding: 2rem 0;
+    }
+    
+    /* Responsive Footer */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-brand h3 {
+        font-size: 1.5rem;
+    }
+    
+    .footer-brand p {
+        font-size: 0.95rem;
+    }
+    
+    /* Responsive Tables */
+    .comparison-table {
+        font-size: 0.8rem;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+        padding: 0.5rem;
+    }
+    
+    /* Playbook Content Responsive */
+    .playbook-content {
+        padding: 2rem 1rem;
     }
 }
 
