@@ -9,20 +9,12 @@
     <priority>1.0</priority>
   </url>
   
-  <!-- Complete Playbook -->
+  <!-- Playbook Redirect -->
   <url>
     <loc>https://aeo-playbook.github.io/playbook.html</loc>
     <lastmod>2025-01-27T10:30:00Z</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  
-  <!-- Quick Start Guide -->
-  <url>
-    <loc>https://aeo-playbook.github.io/quickstart.html</loc>
-    <lastmod>2025-01-27T10:30:00Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.3</priority>
   </url>
   
   <!-- Templates -->
@@ -41,7 +33,7 @@
     <priority>0.7</priority>
   </url>
   
-  <!-- Action Plan -->
+  <!-- Operational Protocol -->
   <url>
     <loc>https://aeo-playbook.github.io/action-plan.html</loc>
     <lastmod>2025-01-27T10:30:00Z</lastmod>

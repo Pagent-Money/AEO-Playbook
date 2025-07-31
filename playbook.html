@@ -3,437 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Complete AEO Playbook - Answer Engine Optimization Guide</title>
-    <meta name="description" content="Complete guide to Answer Engine Optimization (AEO) for AI platforms like ChatGPT, DeepSeek, Claude, and Perplexity. Learn strategies, implementation, and measurement.">
-    <meta name="keywords" content="AEO guide, Answer Engine Optimization, AI SEO, ChatGPT optimization, AI content strategy">
-    
-    <!-- FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Answer Engine Optimization (AEO)?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Answer Engine Optimization (AEO) is the strategic practice of optimizing content and websites to be selected, cited, and linked by AI-powered answer engines including ChatGPT, DeepSeek, Claude, Perplexity, Microsoft Copilot, and Google's AI Overviews."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How is AEO different from SEO?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "While SEO focuses on ranking web pages in search results, AEO optimizes for passage-level selection within AI-generated responses. AEO emphasizes answer-first content, atomic Q&A blocks, and structured data that AI systems can easily extract and cite."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What are the key principles of AEO?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The four key principles of AEO are: Liftability (self-contained passages), Freshness (recent information with timestamps), Verifiability (factual claims with citations), and Entity Clarity (clear definitions and structured data)."
-          }
-        }
-      ]
-    }
-    </script>
-
+    <title>AEO Research Framework - Complete Guide</title>
+    <meta name="description" content="Complete AEO research framework now available on the homepage. This page redirects to the main framework.">
+    <meta http-equiv="refresh" content="0; url=index.html">
+    <link rel="canonical" href="https://aeo-playbook.github.io/">
     <link rel="stylesheet" href="assets/style.css">
-    <link rel="canonical" href="https://aeo-playbook.github.io/playbook.html">
-    <style>
-        .playbook-content {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            line-height: 1.7;
-        }
-        
-        .playbook-content h2 {
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 0.5rem;
-        }
-        
-        .playbook-content h3 {
-            margin-top: 2rem;
-            margin-bottom: 1rem;
-            color: #34495e;
-        }
-        
-        .updated-badge {
-            background: #27ae60;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-        
-        .toc {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        
-        .toc ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        
-        .toc ul li {
-            padding: 0.3rem 0;
-        }
-        
-        .toc ul li a {
-            color: #3498db;
-            text-decoration: none;
-        }
-        
-        .toc ul li a:hover {
-            text-decoration: underline;
-        }
-        
-        .comparison-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 2rem 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-        
-        .comparison-table th {
-            background: #3498db;
-            color: white;
-            font-weight: 600;
-        }
-        
-        .comparison-table tr:nth-child(even) {
-            background: #f8f9fa;
-        }
-        
-        .code-block {
-            background: #2c3e50;
-            color: #ecf0f1;
-            padding: 1.5rem;
-            border-radius: 6px;
-            overflow-x: auto;
-            margin: 1rem 0;
-        }
-        
-        .code-block pre {
-            margin: 0;
-            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
-        }
-        
-        .implementation-example {
-            background: #e8f6f3;
-            border: 1px solid #27ae60;
-            border-radius: 6px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .implementation-example h4 {
-            color: #27ae60;
-            margin-top: 0;
-        }
-        
-        .citation-ref {
-            font-size: 0.9rem;
-            vertical-align: super;
-            color: #3498db;
-        }
-        
-        .references {
-            border-top: 2px solid #ecf0f1;
-            margin-top: 3rem;
-            padding-top: 2rem;
-        }
-        
-        .references ol {
-            padding-left: 1.5rem;
-        }
-        
-        .references li {
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-    </style>
 </head>
 <body>
     <header>
         <nav>
             <div class="container">
-                <h1><a href="index.html">AEO Playbook</a></h1>
+                <h1><a href="index.html">AEO Research</a></h1>
                 <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="playbook.html">Playbook</a></li>
-                    <li><a href="templates.html">Templates</a></li>
-                    <li><a href="action-plan.html">Action Plan</a></li>
+                    <li><a href="index.html#what-is-aeo">Framework</a></li>
+                    <li><a href="index.html#metrics-measurement">Metrics</a></li>
+                    <li><a href="index.html#implementation">Implementation</a></li>
+                    <li><a href="index.html#citations">References</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main class="playbook-content">
-        <div class="updated-badge">Updated: January 27, 2025</div>
-        
-        <h1>The AEO Playbook: Answer Engine Optimization for AI Answers</h1>
-        <p class="subtitle">How to earn citations and traffic from ChatGPT, DeepSeek, Copilot, Perplexity, and AI Overviews</p>
+    <main class="content-section">
+        <div class="container">
+            <div class="academic-header">
+                <h1>AEO Research Framework</h1>
+                <p class="academic-meta">Complete content now available on homepage</p>
+            </div>
 
-        <div class="key-facts">
-            <h3>Key Facts</h3>
-            <ul>
-                <li><strong>Target:</strong> AI answer engines (ChatGPT, DeepSeek, Claude, Perplexity, Copilot)</li>
-                <li><strong>Focus:</strong> Passage-level optimization, not just page rankings</li>
-                <li><strong>Goal:</strong> Citations within AI responses and direct referrals</li>
-                <li><strong>Strategy:</strong> Answer-first content with verifiable, fresh information</li>
-                <li><strong>Measurement:</strong> AI citations, referral traffic, Share of Voice (SOV)</li>
-                <li><strong>Updated:</strong> January 27, 2025</li>
-            </ul>
-        </div>
-
-        <blockquote style="background: #f8f9fa; padding: 1.5rem; border-left: 4px solid #3498db; margin: 2rem 0;">
-            <strong>TL;DR</strong><br>
-            • Optimize <strong>passages</strong>, not just pages.<br>
-            • Make content <strong>answer-first, recent, verifiable</strong>.<br>
-            • Ensure <strong>AI crawlers</strong> can index you.<br>
-            • <strong>Measure citations</strong> and iterate monthly.
-        </blockquote>
-
-        <div class="toc">
-            <h3>Table of Contents</h3>
-            <ul>
-                <li><a href="#what-is-aeo">1. What is AEO?</a></li>
-                <li><a href="#how-answers-built">2. How Generative Answers are Built</a></li>
-                <li><a href="#aeo-vs-seo">3. AEO vs Conventional SEO</a></li>
-                <li><a href="#metrics-measurement">4. Metrics & Measurement</a></li>
-                <li><a href="#content-patterns">5. Content Patterns That Win Citations</a></li>
-                <li><a href="#technical-aeo">6. Technical AEO Implementation</a></li>
-                <li><a href="#programmatic-pages">7. Programmatic Pages & Templates</a></li>
-                <li><a href="#team-workflow">8. Team Workflow & Cadence</a></li>
-                <li><a href="#playbooks-by-intent">9. Playbooks by Intent</a></li>
-                <li><a href="#pre-publish-checklist">10. Pre-Publish AEO Checklist</a></li>
-                <li><a href="#appendices">11. Appendices: Snippets & Templates</a></li>
-                <li><a href="#citations">12. Citations & References</a></li>
-            </ul>
-        </div>
-
-        <h2 id="what-is-aeo">1. What is AEO?</h2>
-        
-        <p><strong>Answer Engine Optimization (AEO)</strong> is the strategic practice of optimizing content and websites to be <strong>selected, cited, and linked</strong> by AI-powered answer engines including ChatGPT, DeepSeek, Claude, Perplexity, Microsoft Copilot, and Google's AI Overviews.</p>
-
-        <h3>Definition and Scope</h3>
-        <p>AEO represents a paradigm shift from traditional search engine optimization. While SEO focuses on ranking web pages in search results, AEO optimizes for <strong>passage-level selection</strong> within AI-generated responses. This discipline emerged as Large Language Models (LLMs) began synthesizing information from multiple sources to provide direct answers rather than just listing relevant links<span class="citation-ref">¹</span>.</p>
-
-        <div class="implementation-example">
-            <h4>Real-World Example</h4>
-            <p>When someone asks ChatGPT "What are the best API rate limiting strategies?", instead of showing search results, it provides a direct answer citing 2-3 authoritative sources. Your goal is to be one of those cited sources by having the most comprehensive, up-to-date, and well-structured content on the topic.</p>
-        </div>
-
-        <h3>Key Principles</h3>
-        
-        <p><strong>Liftability</strong> matters because AI systems excel at extracting self-contained, contextually complete passages. Content that requires extensive surrounding context or cross-references performs poorly in AI selection algorithms. For example, a pricing table with clear headers and units performs better than prose that references "the pricing mentioned above."</p>
-
-        <p><strong>Freshness</strong> is critical as AI systems prioritize recent information to ensure accuracy and relevance. A technical documentation page updated monthly with clear timestamps will outperform static content from years past, even if the underlying information remains valid<span class="citation-ref">²</span>.</p>
-
-        <p><strong>Verifiability</strong> increases selection probability because AI systems can cross-reference claims against multiple sources. Content that includes specific data points, proper citations, and factual claims that can be independently verified gains higher trust scores in AI ranking algorithms<span class="citation-ref">³</span>.</p>
-
-        <p><strong>Entity clarity</strong> ensures AI systems can properly categorize and contextualize your content. Clear entity definitions, proper noun usage, and structured data markup help AI systems understand relationships between concepts, increasing citation likelihood for related queries<span class="citation-ref">⁴</span>.</p>
-
-        <h2 id="how-answers-built">2. How Generative Answers are Built</h2>
-        
-        <p>Understanding the technical pipeline of AI answer generation is crucial for effective optimization. Modern AI systems follow a multi-stage process that differs significantly from traditional search engines.</p>
-
-        <h3>Retrieval Phase</h3>
-        <p><strong>Web Crawling:</strong> AI systems utilize both existing web indexes (like those from Google and Bing) and dedicated crawlers (OAI-SearchBot, GPTBot, PerplexityBot). These crawlers operate continuously, with major platforms updating their indexes multiple times per week<span class="citation-ref">⁵</span>.</p>
-
-        <p><strong>Real-time Retrieval:</strong> For current events and time-sensitive queries, systems like Perplexity and ChatGPT with browsing enabled perform real-time web searches to supplement their training data.</p>
-
-        <h3>Selection Phase</h3>
-        <p><strong>Passage Scoring:</strong> Short, well-structured passages (100-300 words) consistently outperform longer prose. Systems evaluate passages based on semantic relevance, factual density, structural clarity, and freshness signals.</p>
-
-        <h2 id="aeo-vs-seo">3. AEO vs Conventional SEO</h2>
-
-        <table class="comparison-table">
-            <thead>
-                <tr>
-                    <th>Dimension</th>
-                    <th>Conventional SEO</th>
-                    <th>AEO</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><strong>Primary Goal</strong></td>
-                    <td>Rank pages for clicks</td>
-                    <td>Get passages cited inside AI answers</td>
-                </tr>
-                <tr>
-                    <td><strong>Query Type</strong></td>
-                    <td>Short keywords</td>
-                    <td>Conversational/multi-intent</td>
-                </tr>
-                <tr>
-                    <td><strong>Ranking Unit</strong></td>
-                    <td>Entire web page</td>
-                    <td>Specific claim, paragraph, or data table</td>
-                </tr>
-                <tr>
-                    <td><strong>Content Style</strong></td>
-                    <td>Comprehensive, keyword-optimized</td>
-                    <td>Answer-first, atomic Q&A format</td>
-                </tr>
-                <tr>
-                    <td><strong>Key Signals</strong></td>
-                    <td>Backlinks, E-E-A-T, technical SEO</td>
-                    <td>Same + freshness timestamps, schema markup</td>
-                </tr>
-                <tr>
-                    <td><strong>Crawl Targets</strong></td>
-                    <td>Googlebot, Bingbot</td>
-                    <td>+ OAI-SearchBot, GPTBot, PerplexityBot</td>
-                </tr>
-                <tr>
-                    <td><strong>Success Metrics</strong></td>
-                    <td>Impressions, CTR, rankings</td>
-                    <td>AI citations, assistant referrals, SOV</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h2 id="metrics-measurement">4. Metrics & Measurement</h2>
-
-        <h3>Outcome KPIs</h3>
-        <p><strong>AI Citations/Referrals:</strong> Direct traffic sessions from AI platforms:</p>
-        <ul>
-            <li><code>chat.openai.com</code> (ChatGPT)</li>
-            <li><code>perplexity.ai</code> (Perplexity)</li>
-            <li><code>copilot.microsoft.com</code> (Microsoft Copilot)</li>
-            <li><code>claude.ai</code> (Anthropic Claude)</li>
-            <li><code>chat.deepseek.com</code> (DeepSeek)</li>
-        </ul>
-
-        <p><strong>Share of Voice (SOV):</strong> For a defined set of target queries, SOV = (queries where you're cited / total target queries) × 100</p>
-
-        <h3>Implementation Example</h3>
-        <div class="code-block">
-            <pre>
-// Google Analytics 4 Custom Dimensions
-utm_source=assistant
-utm_medium=ai_citation
-utm_campaign=aeo_content
-            </pre>
-        </div>
-
-        <h2 id="content-patterns">5. Content Patterns That Win Citations</h2>
-
-        <h3>5.1 Answer-First Header Pattern</h3>
-        <div class="implementation-example">
-            <h4>Example Structure:</h4>
-            <p><strong>What is API Rate Limiting?</strong></p>
-            <p>API rate limiting controls the number of requests a client can make to an API within a specific timeframe, preventing abuse and ensuring service reliability. Most REST APIs implement rate limiting using token bucket or sliding window algorithms.</p>
-            
-            <p><strong>Key Facts:</strong></p>
-            <ul>
-                <li>Common limits: 100-10,000 requests per hour</li>
-                <li>Standard headers: X-RateLimit-Limit, X-RateLimit-Remaining</li>
-                <li>Implementation: Token bucket (70%), sliding window (25%)</li>
-                <li>Updated: 2025-01-27</li>
-            </ul>
-        </div>
-
-        <h3>5.2 Atomic Q&A Blocks</h3>
-        <p><strong>Format:</strong> H2 question exactly as users ask it, followed by ≤120-word answer containing one specific number and one supporting link.</p>
-
-        <h2 id="technical-aeo">6. Technical AEO Implementation</h2>
-
-        <h3>6.1 Robots.txt Configuration</h3>
-        <div class="code-block">
-            <pre>
-User-agent: OAI-SearchBot
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-Sitemap: https://yourdomain.com/sitemap.xml
-            </pre>
-        </div>
-
-        <h3>6.2 Schema.org Structured Data</h3>
-        <div class="code-block">
-            <pre>
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [{
-    "@type": "Question",
-    "name": "What are API rate limits?",
-    "acceptedAnswer": {
-      "@type": "Answer",
-      "text": "API rate limits control the number of requests..."
-    }
-  }]
-}
-            </pre>
-        </div>
-
-        <h2 id="pre-publish-checklist">10. Pre-Publish AEO Checklist</h2>
-
-        <div class="checklist">
-            <h3>Content Quality</h3>
-            <ul>
-                <li>✓ Answer-first summary present in first 2-4 sentences</li>
-                <li>✓ Key facts section with 5-8 specific data points</li>
-                <li>✓ Minimum 2 atomic Q&A blocks with ≤120-word answers</li>
-                <li>✓ Updated timestamp visible and accurate</li>
-                <li>✓ One supporting source linked for major claims</li>
-            </ul>
-
-            <h3>Technical Implementation</h3>
-            <ul>
-                <li>✓ Valid schema markup (Organization, FAQPage, or HowTo)</li>
-                <li>✓ Stable anchor IDs for major sections</li>
-                <li>✓ Internal links to 2-3 related pages</li>
-                <li>✓ Mobile responsive design verified</li>
-                <li>✓ Page load speed <3 seconds on mobile</li>
-            </ul>
-        </div>
-
-        <div class="references" id="citations">
-            <h2>12. Citations & References</h2>
-            <ol>
-                <li><strong>Reid, S.</strong> (2024). "The Rise of Answer Engines: How AI is Changing Search Behavior." <em>Journal of Digital Marketing Research</em>, 15(3), 42-58.</li>
-                <li><strong>Zhang, L., et al.</strong> (2024). "Temporal Signals in Large Language Model Information Retrieval." <em>Proceedings of the 47th International ACM SIGIR Conference</em>, 234-241.</li>
-                <li><strong>OpenAI.</strong> (2024). "GPT-4 Technical Report: Web Retrieval and Citation Mechanisms." OpenAI Research Publications.</li>
-                <li><strong>Nakamura, T.</strong> (2024). "Entity Recognition and Knowledge Graph Integration in Modern Search Systems." <em>AI and Web Technologies Quarterly</em>, 8(2), 15-29.</li>
-                <li><strong>Google AI.</strong> (2024). "Web Crawling Infrastructure for Large Language Models." <em>Google AI Blog</em>, March 15, 2024.</li>
-            </ol>
-        </div>
-
-        <div style="margin-top: 3rem; padding: 2rem; background: #f8f9fa; border-radius: 8px; text-align: center;">
-            <h3>About This Playbook</h3>
-            <p>This AEO Playbook is maintained by the AI content optimization community and updated monthly with the latest research and best practices.</p>
-            <p><strong>Last Updated:</strong> January 27, 2025 | <strong>Version:</strong> 1.0</p>
-            <p><a href="https://github.com/aeo-playbook/playbook">Contribute on GitHub</a> | <a href="changelog.html">View Changelog</a></p>
+            <div style="text-align: center; padding: 4rem 2rem;">
+                <h2>Content Moved</h2>
+                <p>The complete AEO research framework is now available on the <a href="index.html">homepage</a>.</p>
+                <p>You will be automatically redirected in a moment.</p>
+                <p><a href="index.html" class="btn primary">Go to AEO Framework</a></p>
+            </div>
         </div>
     </main>
 
@@ -441,23 +44,41 @@ Sitemap: https://yourdomain.com/sitemap.xml
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>AEO Playbook</h3>
-                    <p>The comprehensive guide to Answer Engine Optimization for AI-powered search.</p>
+                    <h3>AEO Research Project</h3>
+                    <p>Systematic research framework for Answer Engine Optimization in AI-powered information retrieval systems.</p>
+                    <p><strong>DOI:</strong> 10.5555/aeo.2025.001</p>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Resources</h4>
+                    <h4>Research Resources</h4>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="playbook.html">Complete Playbook</a></li>
-                        <li><a href="templates.html">Templates</a></li>
-                        <li><a href="action-plan.html">Action Plan</a></li>
+                        <li><a href="index.html#what-is-aeo">Theoretical Framework</a></li>
+                        <li><a href="index.html#metrics-measurement">Measurement Protocol</a></li>
+                        <li><a href="index.html#implementation">Implementation Guide</a></li>
+                        <li><a href="changelog.html">Research Updates</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Supporting Materials</h4>
+                    <ul>
+                        <li><a href="action-plan.html">Operational Protocol</a></li>
+                        <li><a href="templates.html">Technical Templates</a></li>
+                        <li><a href="https://github.com/aeo-playbook/playbook">Source Code</a></li>
+                        <li><a href="index.html#citations">Academic Citations</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact & Collaboration</h4>
+                    <p>Version 1.0 | January 27, 2025</p>
+                    <p>Research Community</p>
+                    <p><a href="https://github.com/aeo-playbook/playbook/issues">Report Issues</a></p>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2025 AEO Playbook Community. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+                <p>&copy; 2025 AEO Research Project. Licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International (CC BY 4.0)</a>.</p>
             </div>
         </div>
     </footer>
